@@ -1,0 +1,1 @@
+The activation API must be hosted by you on an HTTPS endpoint. Set that endpoint in kms_config.json before building the Windows installer. Do not distribute the server admin key or signing secret with the client.

@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: kms-word-ai-licensing
+    runtime: docker
+    rootDir: server
+    plan: starter
+    healthCheckPath: /health
+    disk:
+      name: kms-license-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: KMS_ADMIN_KEY
+        generateValue: true
+      - key: KMS_SIGNING_SECRET
+        generateValue: true
+      - key: KMS_LICENSE_DB
+        value: /var/data/licenses.sqlite3
